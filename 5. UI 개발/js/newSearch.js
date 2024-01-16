@@ -94,7 +94,7 @@ window.onload = function () {
     var dongs = {};
     var infoDatas = {};
     var array = [];
-    
+
     for (let i = 0; i < abc.length; i++) {
         customOverlays['co' + i] = document.getElementById('overlay' + i)
         infoDatas['infoData' + i] = document.getElementById('infoData' + i)
@@ -364,7 +364,7 @@ window.onload = function () {
     }
 
     // Chart
-var region;
+    var region;
 
     var chartData = {
         ['서울시 송파구 위례동']: [[Math.round(Math.random() * 1000), Math.round(Math.random() * 1000), Math.round(Math.random() * 1000), Math.round(Math.random() * 1000), Math.round(Math.random() * 1000), Math.round(Math.random() * 1000)],
@@ -392,64 +392,64 @@ var region;
                 for (let c = 0; c < Object.keys(chartData).length; c++) {
                     if (region == Object.keys(chartData)[b]) {
                         chartArea = new Chart(chartArea, {
-        type: 'line',
-        data: {
-            labels: Object.values(optionData)[c][b],
-            datasets: [
-                {
-                    // label: 'population',
-                    data: Object.values(chartData)[b][0],
-                    borderWidth: 3,
-                    borderColor: 'black',
-                    backgroundColor: 'black'
-                    // tension: 0.4,
-                }
+                            type: 'line',
+                            data: {
+                                labels: Object.values(optionData)[c][b],
+                                datasets: [
+                                    {
+                                        // label: 'population',
+                                        data: Object.values(chartData)[b][0],
+                                        borderWidth: 3,
+                                        borderColor: 'black',
+                                        backgroundColor: 'black'
+                                        // tension: 0.4,
+                                    }
 
-            ]
-        },
-        options: {
-            reponsive: true,
-            maintainAspectRatio: false,
-            scales: {
+                                ]
+                            },
+                            options: {
+                                reponsive: true,
+                                maintainAspectRatio: false,
+                                scales: {
 
-                y: {
-                    grid: {
-                        display: true,
-                        color: 'rgba(0, 0, 0, 0.3)',
-                    },
-                    beginAtZero: true,
-                    min: Object.values(optionData)[b][1],
-                    max: Object.values(optionData)[b][2],
-                    position: 'top',
-                    ticks: {
-                        callback: function (value, index, values) {
-                            if (index === 0) {
-                                return Object.values(optionData)[b][3] + value;
-                            } else {
-                                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+                                    y: {
+                                        grid: {
+                                            display: true,
+                                            color: 'rgba(0, 0, 0, 0.3)',
+                                        },
+                                        beginAtZero: true,
+                                        min: Object.values(optionData)[b][1],
+                                        max: Object.values(optionData)[b][2],
+                                        position: 'top',
+                                        ticks: {
+                                            callback: function (value, index, values) {
+                                                if (index === 0) {
+                                                    return Object.values(optionData)[b][3] + value;
+                                                } else {
+                                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+                                                }
+                                            },
+                                        },
+                                    },
+                                },
+                                plugins: {
+                                    title: {
+                                        display: true,
+                                        text: Object.values(optionData)[b][4],
+                                        font: {
+                                            size: 25,
+                                        }
+                                    },
+                                    legend: {
+                                        display: false,
+                                        labels: {
+                                            usePointStyle: true
+                                        },
+                                    },
+                                },
                             }
-                        },
-                    },
-                },
-            },
-            plugins: {
-                title: {
-                    display: true,
-                    text: Object.values(optionData)[b][4],
-                    font: {
-                        size: 25,
+                        });
                     }
-                },
-                legend: {
-                    display: false,
-                    labels: {
-                        usePointStyle: true
-                    },
-                },
-            },
-        }
-    });
-}
                 }
             }
         };
